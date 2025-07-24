@@ -1,0 +1,125 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #000;
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.part_1 h1 {
+    font-size: 1.4rem;
+}
+
+.part_2 a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.text {
+    text-align: center;
+    margin: 40px 0 20px 0;
+}
+
+.text h1 {
+    font-size: 1.8rem;
+    color: #cc0000;
+}
+
+.Divisions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.ds {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ds:hover {
+    background-color: #ffebee;
+    border-color: #cc0000;
+    transform: translateY(-4px);
+}
+
+.ds h1 {
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.ds a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .part_1 h1 {
+        font-size: 1.2rem;
+    }
+
+    .text h1 {
+        font-size: 1.4rem;
+    }
+
+    .ds h1 {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 10px;
+    }
+
+    .part_1 h1 {
+        font-size: 1rem;
+    }
+
+    .part_2 a {
+        font-size: 0.95rem;
+    }
+
+    .text h1 {
+        font-size: 1.2rem;
+    }
+
+    .ds h1 {
+        font-size: 1rem;
+    }
+
+    .ds {
+        padding: 15px;
+    }
+}

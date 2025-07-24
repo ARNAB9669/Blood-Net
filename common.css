@@ -1,0 +1,134 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #000;
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.part_1 h1 {
+    font-size: 1.4rem;
+}
+
+.part_2 a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.main h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #cc0000;
+}
+
+.blood h1,
+.eye h1 {
+    font-size: 1.4rem;
+    color: #444;
+    cursor: pointer;
+    margin: 20px 0 10px;
+}
+
+.groups, .eyes {
+    display: none; /* default hidden */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.groups.on, .eyes.on {
+    display: flex;
+}
+
+.groups a, .eyes a {
+    text-decoration: none;
+}
+
+.groups h1,
+.eyes h1 {
+    background-color: #fff;
+    border: 2px solid #cc0000;
+    color: #cc0000;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.groups h1:hover,
+.eyes h1:hover {
+    background-color: #cc0000;
+    color: #fff;
+}
+
+.css h1 {
+    color: #888;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .main h1 {
+        font-size: 1.2rem;
+    }
+
+    .groups h1,
+    .eyes h1 {
+        font-size: 0.95rem;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main {
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .part_1 h1 {
+        font-size: 1.2rem;
+    }
+
+    .part_2 a {
+        font-size: 0.95rem;
+    }
+
+    .groups h1,
+    .eyes h1 {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+
