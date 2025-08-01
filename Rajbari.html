@@ -4,81 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>searchin...</title>
+    <title>Searching...</title>
     <link rel="stylesheet" href="common.css">
 </head>
 
 <body>
     <nav>
         <div class="part_1">
-            <h1>--&gt;Codevelly&lt;--</h1>
+            <h1>--&gt; Codevelly<img src="Materials/logo_cr copy.png" alt="">&lt;--</h1>
         </div>
         <div class="part_2">
             <a href="index.html">Home</a>
         </div>
     </nav>
+    <Div class="warper">
+        <div class="cards">
 
 
-    <div class="main">
-        <div>
-            <h1>You are looking for-</h1>
-        </div>
+            <div class="card_1 card">
+                <div>
+                    <h1>Select your district</h1>
+                </div>
+                <div>
+                    <select name="District-selector" id="district">
+                        <option value="Rajbari">
+                            <h1>Rajbari</h1>
+                        </option>
 
-        <div class="blood css">
-            <h1>🩸-Blood</h1>
-            <div class="groups on"><!--Should be hidden and only show when clicked-->
-                <a href="">
-                    <h1>A+</h1>
-                </a>
-                <a href="">
-                    <h1>A-</h1>
-                </a>
-                <a href="">
-                    <h1>B+</h1>
-                </a>
-                <a href="">
-                    <h1>B-</h1>
-                </a>
-                <a href="">
-                    <h1>AB+</h1>
-                </a>
-                <a href="">
-                    <h1>AB-</h1>
-                </a>
-                <a href="">
-                    <h1>O-</h1>
-                </a>
-                <a href="">
-                    <h1>O-</h1>
-                </a>
-                <a href="">
-                    <h1>Rare</h1>
-                </a>
-            </div>
-
-            <div class="eye css">
-                <h1>👁️-eye</h1>
-                <div class="eyes on"><!--Should be hidden and only show when clicked-->
-                    <div>
-                        <a href="">
-                            <h1>Left-eye</h1>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="">
-                            <h1>Right-eye</h1>
-                        </a>
-                    </div>
-                    
+                    </select>
                 </div>
             </div>
-            <div class="css">
-                <h1>Coming soon...</h1>
-            </div>
-        </div>
-    </div>
 
-    <script src="common.js"></script>
+
+            <div class="card_2 card">
+                <div>
+                    <h1>Select Blood group</h1>
+                </div>
+                <div>
+                    <select name="blood_group_selector" id="blood_group">
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card_3 card">
+                <div class="buttton">
+                    <button type="submit">Search</button>
+                </div>
+            </div>
+
+        </div>
+
+    </Div>
+    <script src="common_Dhaka.js"></script>
 </body>
 
 </html>
