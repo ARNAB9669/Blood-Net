@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Show loader at the beginning
+  const loader = document.createElement('div');
+  loader.id = 'customLoader';
+  loader.innerHTML = `
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <div style="border: 8px solid #f3f3f3; border-top: 8px solid #00f2ff; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite;"></div>
+    </div>
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  `;
+  document.body.appendChild(loader);
   const params = new URLSearchParams(window.location.search);
   const district = params.get('district');
   // alert("Selected district: " + district);
@@ -29,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!Array.isArray(data) || data.length === 0) {
         container.innerHTML = '<p>No matching donors found.</p>';
+        // Remove loader if present
+        const existingLoader = document.getElementById('customLoader');
+        if (existingLoader) existingLoader.remove();
         return;
       }
 
@@ -85,9 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.body.appendChild(script);
       });
+      // Remove loader after donor cards appended
+      const existingLoader = document.getElementById('customLoader');
+      if (existingLoader) existingLoader.remove();
     })
     .catch(error => {
       console.error("Error loading donor data:", error);
+      // Remove loader if present
+      const existingLoader = document.getElementById('customLoader');
+      if (existingLoader) existingLoader.remove();
       document.getElementById('resultsContainer').innerHTML = '<p>Error loading donor data.</p>';
     });
 });

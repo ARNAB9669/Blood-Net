@@ -11,6 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("Fetching from URL:", url);
   // alert("Fetching data from: " + url);
 
+  const loader = document.createElement('div');
+  loader.id = 'customLoader';
+  loader.innerHTML = `
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <div style="border: 8px solid #f3f3f3; border-top: 8px solid #00f2ff; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite;"></div>
+    </div>
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  `;
+  document.body.appendChild(loader);
+
   fetch(url)
     .then(response => {
       console.log(response);
@@ -85,9 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.body.appendChild(script);
       });
+
+      const existingLoader = document.getElementById('customLoader');
+      if (existingLoader) existingLoader.remove();
     })
     .catch(error => {
       console.error("Error loading donor data:", error);
+      const existingLoader = document.getElementById('customLoader');
+      if (existingLoader) existingLoader.remove();
       document.getElementById('resultsContainer').innerHTML = '<p>Error loading donor data.</p>';
     });
 });

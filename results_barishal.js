@@ -1,35 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const district = params.get('district');
-    // alert("Selected district: " + district);
-    const blood_group = params.get('blood_group');
-    // alert("Selected blood group: " + blood_group);
+  const params = new URLSearchParams(window.location.search);
+  const district = params.get('district');
+  // alert("Selected district: " + district);
+  const blood_group = params.get('blood_group');
+  // alert("Selected blood group: " + blood_group);
 
-    const API_URL = 'https://script.google.com/macros/s/AKfycbzHyfssfkir5xOE62BR-MmaCvqZCtlSeGxCgmiHhtVAXTLRUdnq0LIwxMIAUu-knXYr/exec';
-    const url = `${API_URL}?district=${encodeURIComponent(district)}&blood_group=${encodeURIComponent(blood_group)}`;
+  const API_URL = 'https://script.google.com/macros/s/AKfycbzHyfssfkir5xOE62BR-MmaCvqZCtlSeGxCgmiHhtVAXTLRUdnq0LIwxMIAUu-knXYr/exec';
+  const url = `${API_URL}?district=${encodeURIComponent(district)}&blood_group=${encodeURIComponent(blood_group)}`;
 
-    console.log("Fetching from URL:", url);
-    // alert("Fetching data from: " + url);
+  console.log("Fetching from URL:", url);
+  // alert("Fetching data from: " + url);
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error " + response.status);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const container = document.getElementById('resultsContainer');
+  const loader = document.createElement('div');
+  loader.id = 'customLoader';
+  loader.innerHTML = `
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="border: 8px solid #f3f3f3; border-top: 8px solid #00f2ff; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite;"></div>
+      </div>
+      <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+    `;
+  document.body.appendChild(loader);
 
-            if (!Array.isArray(data) || data.length === 0) {
-                container.innerHTML = '<p>No matching donors found.</p>';
-                return;
-            }
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      const container = document.getElementById('resultsContainer');
 
-            data.forEach(donor => {
-                const card = document.createElement('div');
-                card.className = 'donor-card';
-                card.innerHTML = `
+      if (!Array.isArray(data) || data.length === 0) {
+        container.innerHTML = '<p>No matching donors found.</p>';
+        const existingLoader = document.getElementById('customLoader');
+        if (existingLoader) existingLoader.remove();
+        return;
+      }
+
+      data.forEach(donor => {
+        const card = document.createElement('div');
+        card.className = 'donor-card';
+        card.innerHTML = `
           <div class="card-content" ">
             <div class="donor-name" style="text-align: center; margin-bottom: 10px;">
               <h2 style="margin: 0; color: #00f2ff;">${donor.First_name} ${donor.Last_name}</h2>
@@ -52,11 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         `;
-                container.appendChild(card);
+        container.appendChild(card);
 
-                // Add copyNumber function dynamically
-                const script = document.createElement('script');
-                script.innerHTML = `
+        // Add copyNumber function dynamically
+        const script = document.createElement('script');
+        script.innerHTML = `
           function copyNumber(number) {
             navigator.clipboard.writeText(number).then(() => {
               const popup = document.createElement('div');
@@ -77,11 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           }
         `;
-                document.body.appendChild(script);
-            });
-        })
-        .catch(error => {
-            console.error("Error loading donor data:", error);
-            document.getElementById('resultsContainer').innerHTML = '<p>Error loading donor data.</p>';
-        });
+        document.body.appendChild(script);
+      });
+      const existingLoader = document.getElementById('customLoader');
+      if (existingLoader) existingLoader.remove();
+    })
+    .catch(error => {
+      console.error("Error loading donor data:", error);
+      const existingLoader = document.getElementById('customLoader');
+      if (existingLoader) existingLoader.remove();
+      document.getElementById('resultsContainer').innerHTML = '<p>Error loading donor data.</p>';
+    });
 });
