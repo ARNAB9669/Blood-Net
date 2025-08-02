@@ -62,15 +62,15 @@ document.querySelector("form").addEventListener("submit", async function (event)
         return;
     }
 
-    // if (!/^\d{11}$/.test(mobileNumber)) {
-    //     alert("Please enter a valid 11-digit mobile number.");
-    //     return;
-    // }
+    if (!/^\d{11}$/.test(mobileNumber)) {
+        alert("Please enter a valid 11-digit mobile number.");
+        return;
+    }
 
-    // if (age < 18 || age > 65) {
-    //     alert("Age must be between 18 and 65.");
-    //     return;
-    // }
+    if (age < 18 || age > 65) {
+        alert("Age must be between 18 and 65.");
+        return;
+    }
 
     
     let url = divisionUrlMap[division];
@@ -85,6 +85,21 @@ document.querySelector("form").addEventListener("submit", async function (event)
     formData.append("district", district);
     formData.append("division", division);
 
+    const loader = document.createElement("div");
+    loader.id = "loader";
+    loader.textContent = "Submitting...";
+    loader.style.position = "fixed";
+    loader.style.top = "50%";
+    loader.style.left = "50%";
+    loader.style.transform = "translate(-50%, -50%)";
+    loader.style.padding = "20px 30px";
+    loader.style.backgroundColor = "#00f2ff";
+    loader.style.color = "#000";
+    loader.style.borderRadius = "8px";
+    loader.style.boxShadow = "0 0 15px #00f2ff";
+    loader.style.zIndex = "9999";
+    document.body.appendChild(loader);
+
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -94,8 +109,10 @@ document.querySelector("form").addEventListener("submit", async function (event)
         const result = await response.text();
         alert(result);
         document.querySelector("form").reset();
+        document.getElementById("loader")?.remove();
     } catch (error) {
         console.error("Error submitting form:", error);
+        document.getElementById("loader")?.remove();
         alert("Failed to submit. Please try again later.");
     }
 });
