@@ -1,133 +1,317 @@
-
-* {
-    margin: 0;
+*{
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
 }
-.title{
-    text-align: center;
-    margin-bottom: 20px;
-    color: #00f0ff;
+*::selection{
+    color: white;
+    background-color: orangered;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a0f1c;
-    color: #ffffff;
-    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdf8f8;
+    color: #222;
+    line-height: 1.6;
 }
 
-/* Cards Container */
-.cards {
+.warper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 10px;
+}
+
+header {
+    padding: 10px 0;
+}
+
+.head_text h1 {
+    font-size: 1.4rem;
+    color: #cc0000;
+}
+
+.img_1 {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+.register {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+nav {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    width: 95%;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.main {
+    border-radius: 20px;
+    width: 95%;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.search {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    
+}
+
+.search h1 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.search_button {
+    width: 800px;
+    max-width: 500px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #cc0000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.search_button:hover {
+    background-color: #990000;
+}
+
+.img_2 {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    filter: drop-shadow(0 40px 6px rgba(0, 0, 0, 0.1));
+}
+
+
+/*Start edu part from here*/
+
+.edu {
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.myth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.myth_card {
+    border-left: 5px solid red !important;
+    background-color: #ffe6e6;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.myth_card .truth {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.myth_card.expanded .truth {
+    display: block;
+}
+
+.education {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    max-width: 600px;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Card Design */
-.card {
-    background: linear-gradient(135deg, #0d1b2a, #1b263b);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #0ff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px #00f0ff;
-}
-
-/* Headings */
-.card h1 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #00f0ff;
-}
-
-/* Select Inputs */
-select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #00f0ff;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0d1b2a, #1b263b);
-    color: #00f0ff;
-    font-size: 1rem;
-    box-shadow: 0 0 15px #00f0ff40;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%225%22%20viewBox%3D%220%200%2010%205%22%20fill%3D%22%2300f0ff%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%200L5%205L10%200H0Z%22/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-}
-
-select:focus {
-    outline: none;
-    box-shadow: 0 0 25px #00f0ff80;
-    border-color: #00cce6;
-}
-
-/* Inputs */
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #1c2b3a;
-    color: #00f0ff;
-    border: none;
+.edu_card {
+    background-color: #e6f0ff;
+    border-left: 5px solid #3366cc;
     border-radius: 8px;
-    box-shadow: 0 0 10px #00f0ff40;
-}
-
-/* Radio Buttons */
-.card input[type="radio"] {
-    margin-right: 8px;
-    accent-color: #00f0ff;
-}
-
-.card span {
-    margin-right: 20px;
-    font-size: 1rem;
-    color: #00e0ff;
-}
-
-/* Button */
-button {
-    background: #00f0ff;
-    color: #000;
-    padding: 12px 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+    padding: 20px;
     width: 100%;
+    max-width: 800px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background: #00cce6;
+.edu_card h2 {
+    color: #660000;
+    margin-bottom: 10px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .cards {
-        padding: 10px;
+.edu_card p, .edu_card ul {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.truth{
+    background-color: #fff0f0;
+    border: 1px solid #ffcccc;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+
+.img_3 {
+    width: 50px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
     }
 
-    .card h1 {
+    .head_text h1 {
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    .registration {
+        align-self: center;
+    }
+
+    .img_1 {
+        width: 45px;
+    }
+
+    .edu_card {
+        padding: 15px;
+        width: 92%;
+    }
+
+    .myth_card {
+        font-size: 15px;
+        width: 92%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .search_button{
+        max-width: 300px;
+    }
+    nav {
+        padding: 8px;
+        gap: 12px;
+    }
+
+    .head_text h1 {
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .search h1 {
+        font-size: 1rem;
+    }
+
+    .search_button {
+        font-size: 14px;
+        height: 45px;
+    }
+
+    .edu_card h2 {
         font-size: 1.1rem;
     }
+
+    .edu_card p, .edu_card ul {
+        font-size: 14px;
+    }
+
+    .edu_card {
+        font-size: 13.5px;
+        width: 94%;
+    }
+
+    .myth_card {
+        font-size: 13.5px;
+        width: 94%;
+    }
+
+    .truth {
+        font-size: 13px;
+    }
+
+    .registration {
+        align-self: center;
+    }
+
+    
+}
+footer{
+    background-color: black;
+}
+.ft_1{
+    color: white;
+}
+.img_3 {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: block;
+}
+.foot{
+    display: flex;
+    justify-content: center;
 }
 
-
-.edit{
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    
+.search_button:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
