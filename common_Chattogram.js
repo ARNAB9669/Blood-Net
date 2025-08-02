@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // alert(`Selected district: ${district}\nSelected blood group: ${blood_group}`);
 
         if (!district || !blood_group) {
-            // alert("Please select both district and blood group.");
+            alert("Please select both district and blood group.");
             return;
         }
 
