@@ -1,0 +1,71 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+.warper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  flex-direction: column;
+}
+
+.cards {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0, 162, 255, 0.4);
+}
+
+.card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 162, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.card h1 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card input,
+.card select {
+  width: 96%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #e0f7ff;
+  font-size: 1rem;
+}
+
+.card input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.card_8 button {
+  background-color: #00aaff;
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card_8 button:hover {
+  background-color: #0088cc;
+}
